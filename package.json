@@ -1,0 +1,1 @@
+{"name":"xeneon-cs2-dashboard","version":"0.1.0","description":"CS2 Game State Integration dashboard for Corsair XENEON EDGE / iCUE","main":"bridge/server.js","scripts":{"start":"node bridge/server.js"},"keywords":["cs2","counter-strike","xeneon","corsair","icue","gsi","dashboard"],"author":"beuh95","license":"MIT","engines":{"node":">=18"}}

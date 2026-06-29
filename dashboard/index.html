@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=2560, initial-scale=1">
+  <title>XENEON CS2 Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="hud">
+    <aside class="left">
+      <section class="brand card"><div><b>CS2 <span>XENEON</span> HUD</b><small>beuh95 · iCUE iframe · 2560×720</small></div><em id="mode">DEMO</em></section>
+      <section class="card player"><h2>Joueur live</h2><div class="bars"><label>HP <strong id="hp">100</strong></label><meter id="hpbar" min="0" max="100" value="100"></meter><label>Kevlar <strong id="armor">100</strong></label><meter id="armorbar" min="0" max="100" value="100"></meter><label>Ammo <strong id="ammo">30</strong></label><meter id="ammobar" min="0" max="30" value="30"></meter></div><p>Arme active</p><div class="weapon" id="weapon">AK-47</div></section>
+      <section class="card stats"><h2>Stats & utilitaires</h2><div class="grid"><div><small>K/D/A</small><b id="kda">0/0/0</b></div><div><small>ADR</small><b id="adr">--</b></div><div><small>HS%</small><b id="hs">--%</b></div><div><small>Money</small><b id="money">$0</b></div></div><div class="nades"><span>Flash <b id="flash">0</b></span><span>Smoke <b id="smoke">0</b></span><span>HE <b id="he">0</b></span><span>Molo <b id="molo">0</b></span><span>Kit <b id="kit">0</b></span></div></section>
+      <section class="card system"><h2>Round control</h2><div><small>État</small><b id="activity">READY</b></div><div><small>Ping</small><b>≤5ms</b></div></section>
+    </aside>
+    <section class="main">
+      <header class="score card"><div><small>Counter-Terrorists</small><b id="ctmoney">$0</b></div><div class="scoremid"><strong><span id="ctscore">0</span> — <span id="tscore">0</span></strong><em id="roundtime">--:--</em></div><div><small>Terrorists</small><b id="tmoney">$0</b></div></header>
+      <section class="map card"><div class="maptitle">Tactical radar · <span id="mapname">Mirage</span></div><div class="site a">A</div><div class="site b">B</div><div class="lane l1"></div><div class="lane l2"></div><div class="lane l3"></div><div class="zone z1"></div><div class="zone z2"></div><div id="playerdot" class="dot me"></div><div class="dot mate m1"></div><div class="dot mate m2"></div><div class="dot mate m3"></div><div class="dot enemy e1"></div><div class="dot enemy e2"></div><span class="call c1">A ramp</span><span class="call c2">Palace</span><span class="call c3">Jungle</span><span class="call c4">Connector</span><span class="call c5">Top mid</span><span class="call c6">B apps</span><span class="call c7">Market</span><span class="call c8">CT</span></section>
+      <footer class="bottom"><section class="card"><small>CT vivants</small><b id="ctalive">5/5</b></section><section class="card"><small>T vivants</small><b id="talive">5/5</b></section><section class="card bomb"><small>Bombe</small><b id="bomb">Non plantée</b></section><section class="card"><small>Callout actif</small><b id="callout">Mid</b></section><section class="card"><small>Status</small><b id="status">READY</b></section></footer>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
