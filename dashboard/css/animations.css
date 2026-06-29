@@ -1,0 +1,1 @@
+.dot,.player-dot,.bomb-dot{animation:pulse 1.4s infinite ease-in-out}@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.92)}}

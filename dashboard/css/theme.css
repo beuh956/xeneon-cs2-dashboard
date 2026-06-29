@@ -1,0 +1,1 @@
+:root{--bg:#07080b;--panel:#11151c;--panel2:#171d27;--line:#263244;--text:#eef3ff;--muted:#7d8aa0;--ct:#4ea1ff;--t:#ff9a2f;--hp:#47e083;--armor:#4cc9f0;--danger:#ff445f;--money:#ffd166;--shadow:0 18px 60px rgba(0,0,0,.45)}body{background:radial-gradient(circle at 50% 20%,#172033 0,#07080b 48%,#020306 100%);color:var(--text)}
