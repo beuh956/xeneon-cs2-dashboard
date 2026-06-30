@@ -32,7 +32,7 @@ function normalizeGsi(gsi) {
   const scoreT = map.team_t?.score ?? 0;
 
   return {
-    connection: gsi.demo ? 'DEMO MODE' : 'GSI LIVE',
+    connection: gsi.ready ? 'GSI LIVE' : 'DEMO MODE',
     player: {
       name: player.name || 'Unknown',
       hp: pstate.health ?? 100,

@@ -1,2 +1,61 @@
-const $=(key)=>document.querySelector(`[data-ui="${key}"]`);const money=(n)=>'$'+Number(n||0).toLocaleString('fr-FR');const time=(s)=>`${Math.floor(s/60).toString().padStart(2,'0')}:${Math.floor(s%60).toString().padStart(2,'0')}`;
-export function render(state){$('connection').textContent=state.connection;$('player-name').textContent=state.player.name;$('hp').textContent=state.player.hp;$('hp-bar').style.width=state.player.hp+'%';$('armor').textContent=state.player.armor;$('armor-bar').style.width=state.player.armor+'%';$('money').textContent=money(state.player.money);$('weapon').textContent=state.player.weapon;$('ammo').textContent=`${state.player.ammoClip} / ${state.player.ammoReserve}`;$('score-ct').textContent=String(state.match.scoreCT).padStart(2,'0');$('score-t').textContent=String(state.match.scoreT).padStart(2,'0');$('round-phase').textContent=state.match.phase;$('timer').textContent=time(state.match.timer);$('map').textContent=state.match.map;$('alive-ct').textContent=state.match.aliveCT;$('alive-t').textContent=state.match.aliveT;$('bomb-state').textContent=state.bomb.planted?'PLANTED':'Not planted';$('bomb-timer').textContent=state.bomb.planted?`${state.bomb.timer}s`:'--';$('bomb-card').classList.toggle('is-active',state.bomb.planted);$('kd').textContent=state.stats.kd;$('adr').textContent=state.stats.adr;$('hs').textContent=state.stats.hs;$('ping').textContent=state.stats.ping;$('flash').textContent=state.utility.flash;$('smoke').textContent=state.utility.smoke;$('he').textContent=state.utility.he;$('fire').textContent=state.utility.fire;$('kit').textContent=state.utility.kit?'YES':'NO';}
+const $ = (key) => document.querySelector(`[data-ui="${key}"]`);
+
+const money = (n) => '$' + Number(n || 0).toLocaleString('fr-FR');
+
+const time = (s) => {
+  const value = Math.max(0, Number(s || 0));
+  return `${Math.floor(value / 60).toString().padStart(2, '0')}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
+};
+
+function setText(key, value) {
+  const el = $(key);
+  if (el) el.textContent = value;
+}
+
+function setWidth(key, value) {
+  const el = $(key);
+  if (el) el.style.width = `${Math.max(0, Math.min(100, Number(value || 0)))}%`;
+}
+
+export function render(state) {
+  setText('connection', state.connection || 'DEMO MODE');
+
+  setText('player-name', state.player.name || 'Unknown');
+  setText('hp', state.player.hp ?? 0);
+  setWidth('hp-bar', state.player.hp ?? 0);
+
+  setText('armor', state.player.armor ?? 0);
+  setWidth('armor-bar', state.player.armor ?? 0);
+
+  setText('money', money(state.player.money));
+
+  setText('weapon', state.player.weapon || 'NO WEAPON');
+
+  const hasAmmo = Number(state.player.ammoClip) > 0 || Number(state.player.ammoReserve) > 0;
+  setText('ammo', hasAmmo ? `${state.player.ammoClip ?? 0} / ${state.player.ammoReserve ?? 0}` : '—');
+
+  setText('score-ct', String(state.match.scoreCT ?? 0).padStart(2, '0'));
+  setText('score-t', String(state.match.scoreT ?? 0).padStart(2, '0'));
+  setText('round-phase', state.match.phase || 'UNKNOWN');
+  setText('timer', time(state.match.timer));
+
+  setText('map', state.match.map || 'Unknown');
+
+  const planted = Boolean(state.bomb.planted);
+  setText('bomb-state', planted ? 'PLANTED' : 'SAFE');
+  setText('bomb-timer', planted && state.bomb.timer ? `${state.bomb.timer}s` : '--');
+
+  const bombCard = $('bomb-card');
+  if (bombCard) bombCard.classList.toggle('is-active', planted);
+
+  setText('kd', state.stats.kd ?? '0/0');
+  setText('adr', state.stats.adr ?? 0);
+  setText('hs', state.stats.hs ?? '0%');
+  setText('ping', state.stats.ping ?? '--');
+
+  setText('flash', state.utility.flash ?? 0);
+  setText('smoke', state.utility.smoke ?? 0);
+  setText('he', state.utility.he ?? 0);
+  setText('fire', state.utility.fire ?? 0);
+  setText('kit', state.utility.kit ? 'YES' : 'NO');
+}

@@ -12,91 +12,84 @@
 </head>
 <body>
   <main class="hud" id="app">
-    <section class="topbar panel">
+    <section class="topbar">
       <div class="brand">
         <span class="brand-mark">◆</span>
         <div>
           <strong>XENEON HUD</strong>
-          <span>CS2 tactical dashboard</span>
+          <span data-ui="connection">DEMO MODE</span>
         </div>
       </div>
-      <div class="score ct"><span>CT</span><strong data-ui="score-ct">08</strong></div>
-      <div class="round">
-        <span data-ui="round-phase">ROUND LIVE</span>
-        <strong data-ui="timer">01:24</strong>
+
+      <div class="vital hp">
+        <span>HP</span>
+        <strong data-ui="hp">100</strong>
+        <i data-ui="hp-bar"></i>
       </div>
-      <div class="score t"><strong data-ui="score-t">05</strong><span>T</span></div>
-      <div class="status"><span class="dot"></span><span data-ui="connection">DEMO MODE</span></div>
+
+      <div class="vital armor">
+        <span>ARMOR</span>
+        <strong data-ui="armor">100</strong>
+        <i data-ui="armor-bar"></i>
+      </div>
+
+      <div class="money">
+        <span>MONEY</span>
+        <strong data-ui="money">$4200</strong>
+      </div>
+
+      <div class="scoreboard">
+        <div class="team ct"><span>CT</span><strong data-ui="score-ct">08</strong></div>
+        <div class="timer">
+          <span data-ui="round-phase">ROUND LIVE</span>
+          <strong data-ui="timer">01:24</strong>
+        </div>
+        <div class="team t"><strong data-ui="score-t">05</strong><span>T</span></div>
+      </div>
+
+      <div class="bomb-chip" data-ui="bomb-card">
+        <span>BOMB</span>
+        <strong data-ui="bomb-state">SAFE</strong>
+        <em data-ui="bomb-timer">--</em>
+      </div>
     </section>
 
-    <section class="left panel">
-      <article class="player-card">
-        <div class="avatar">B</div>
-        <div>
-          <div class="label">Player</div>
-          <strong data-ui="player-name">beuh95</strong>
-        </div>
-      </article>
+    <section class="mainstage">
+      <div class="map-mini">
+        <span>MAP</span>
+        <strong data-ui="map">Mirage</strong>
+        <em>TACTICAL MODE</em>
+      </div>
 
-      <article class="metric health">
-        <span>HP</span><strong data-ui="hp">100</strong>
-        <div class="bar"><i data-ui="hp-bar"></i></div>
-      </article>
-      <article class="metric armor">
-        <span>ARMOR</span><strong data-ui="armor">100</strong>
-        <div class="bar"><i data-ui="armor-bar"></i></div>
-      </article>
-      <article class="money"><span>Money</span><strong data-ui="money">$4 200</strong></article>
-      <article class="weapon">
-        <span>Active weapon</span>
+      <div class="weapon-stage">
+        <span>ACTIVE WEAPON</span>
         <strong data-ui="weapon">AK-47</strong>
         <em data-ui="ammo">30 / 90</em>
-      </article>
-    </section>
-
-    <section class="radar panel">
-      <div class="radar-head">
-        <div><span class="label">Map</span><strong data-ui="map">Mirage</strong></div>
-        <div><span class="label">Mode</span><strong>TACTICAL</strong></div>
       </div>
-      <div class="radar-board">
-        <div class="radar-grid"></div>
-        <div class="site site-a">A</div>
-        <div class="site site-b">B</div>
-        <div class="callout c1">PALACE</div>
-        <div class="callout c2">MID</div>
-        <div class="callout c3">SHORT</div>
-        <div class="player-dot" data-ui="player-dot"></div>
-        <div class="bomb-dot" data-ui="bomb-dot">✦</div>
+
+      <div class="player-mini">
+        <span>PLAYER</span>
+        <strong data-ui="player-name">beuh95</strong>
+        <em data-ui="kd">12/5</em>
       </div>
     </section>
 
-    <section class="right panel">
-      <article class="bomb" data-ui="bomb-card">
-        <span>Bomb</span>
-        <strong data-ui="bomb-state">Not planted</strong>
-        <em data-ui="bomb-timer">--</em>
-      </article>
-      <article class="teamlist">
-        <h2>Alive</h2>
-        <div><span>CT</span><strong data-ui="alive-ct">5</strong></div>
-        <div><span>T</span><strong data-ui="alive-t">5</strong></div>
-      </article>
-      <article class="stats-grid">
-        <div><span>K/D</span><strong data-ui="kd">12/5</strong></div>
+    <section class="bottombar">
+      <div class="utility">
+        <div><span>FLASH</span><strong data-ui="flash">2</strong></div>
+        <div><span>SMOKE</span><strong data-ui="smoke">1</strong></div>
+        <div><span>HE</span><strong data-ui="he">1</strong></div>
+        <div><span>FIRE</span><strong data-ui="fire">1</strong></div>
+        <div><span>KIT</span><strong data-ui="kit">NO</strong></div>
+      </div>
+
+      <div class="stats">
         <div><span>ADR</span><strong data-ui="adr">84</strong></div>
         <div><span>HS</span><strong data-ui="hs">58%</strong></div>
-        <div><span>Ping</span><strong data-ui="ping">12</strong></div>
-      </article>
-    </section>
+        <div><span>PING</span><strong data-ui="ping">--</strong></div>
+      </div>
 
-    <section class="bottom panel">
-      <div class="util"><span>FLASH</span><strong data-ui="flash">2</strong></div>
-      <div class="util"><span>SMOKE</span><strong data-ui="smoke">1</strong></div>
-      <div class="util"><span>HE</span><strong data-ui="he">1</strong></div>
-      <div class="util"><span>MOLLY</span><strong data-ui="fire">1</strong></div>
-      <div class="util"><span>KIT</span><strong data-ui="kit">NO</strong></div>
-      <div class="footer-note">V0.2 FOUNDATION · iCUE iframe ready · GSI bridge ready</div>
+      <div class="footer-note">V0.3 GAMEPLAY HUD · CS2 GSI LIVE · XENEON EDGE</div>
     </section>
   </main>
 

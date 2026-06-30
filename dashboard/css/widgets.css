@@ -1,1 +1,297 @@
-.brand{display:flex;gap:16px;align-items:center}.brand-mark{color:var(--t);font-size:34px;text-shadow:0 0 20px rgba(255,154,47,.8)}.brand strong{display:block;font-size:24px;letter-spacing:.08em}.brand span:last-child,.label,.metric span,.money span,.weapon span,.bomb span,.util span,.teamlist span,.stats-grid span{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em}.score{display:flex;align-items:center;justify-content:center;gap:18px}.score span{font-size:28px;font-weight:900}.score strong{font-size:48px}.score.ct span,.score.ct strong{color:var(--ct)}.score.t span,.score.t strong{color:var(--t)}.round{text-align:center}.round span{display:block;color:var(--muted);font-size:13px;letter-spacing:.18em}.round strong{font-size:58px;line-height:1}.status{display:flex;justify-content:flex-end;align-items:center;gap:10px;color:var(--muted);font-weight:700}.dot{width:10px;height:10px;border-radius:50%;background:var(--hp);box-shadow:0 0 18px var(--hp)}.player-card{display:flex;gap:14px;align-items:center}.avatar{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--t),#ff4d2d);display:grid;place-items:center;font-size:34px;font-weight:900}.player-card strong{font-size:26px}.metric,.money,.weapon,.bomb,.teamlist,.stats-grid>div,.util{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:16px}.metric strong,.money strong,.weapon strong,.bomb strong{display:block;font-size:42px;line-height:1.05}.money strong{color:var(--money)}.weapon em,.bomb em{display:block;margin-top:8px;color:var(--muted);font-style:normal;font-size:24px}.bar{height:10px;margin-top:12px;border-radius:999px;background:#283142;overflow:hidden}.bar i{display:block;height:100%;width:100%;border-radius:999px;background:var(--hp);transition:width .25s ease}.armor .bar i{background:var(--armor)}.radar-head{height:58px;display:flex;justify-content:space-between;align-items:center}.radar-head strong{display:block;font-size:28px}.radar-board{position:absolute;inset:82px 18px 18px;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(78,161,255,.10),rgba(255,154,47,.08)),#0b1018;overflow:hidden}.radar-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px}.site{position:absolute;width:100px;height:100px;border-radius:22px;display:grid;place-items:center;font-size:56px;font-weight:900;border:2px solid rgba(255,255,255,.18)}.site-a{left:18%;top:18%;color:var(--t)}.site-b{right:18%;bottom:18%;color:var(--ct)}.callout{position:absolute;color:#dbe7ff88;font-weight:900;letter-spacing:.16em}.c1{left:15%;top:8%}.c2{left:47%;top:45%}.c3{right:25%;top:35%}.player-dot{position:absolute;left:50%;top:55%;width:26px;height:26px;margin:-13px;border-radius:50%;background:var(--hp);box-shadow:0 0 24px var(--hp)}.bomb-dot{position:absolute;left:70%;top:65%;font-size:32px;color:var(--danger);text-shadow:0 0 18px var(--danger)}.bomb strong{color:var(--danger)}.teamlist h2{margin:0 0 12px;font-size:22px}.teamlist div{display:flex;justify-content:space-between;font-size:42px;font-weight:900}.teamlist div:first-of-type strong{color:var(--ct)}.teamlist div:last-of-type strong{color:var(--t)}.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stats-grid strong{display:block;font-size:34px}.util{min-width:130px;text-align:center}.util strong{display:block;font-size:32px}.footer-note{margin-left:auto;color:var(--muted);font-size:14px;letter-spacing:.12em}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark {
+  color: #ffe23d;
+  font-size: 34px;
+  text-shadow: 0 0 18px rgba(255, 226, 61, .8);
+}
+
+.brand strong {
+  display: block;
+  font-size: 25px;
+  letter-spacing: .08em;
+}
+
+.brand span:last-child {
+  display: block;
+  margin-top: 4px;
+  color: #64ffc8;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.vital {
+  position: relative;
+  height: 88px;
+  padding: 14px 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.045);
+  overflow: hidden;
+}
+
+.vital span,
+.money span,
+.bomb-chip span,
+.map-mini span,
+.weapon-stage span,
+.player-mini span,
+.utility span,
+.stats span {
+  display: block;
+  color: #a9b8d8;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+.vital strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.vital i {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 13px;
+  height: 8px;
+  border-radius: 999px;
+  background: #62ff9b;
+  box-shadow: 0 0 18px rgba(98,255,155,.8);
+}
+
+.vital.armor i {
+  background: #61d8ff;
+  box-shadow: 0 0 18px rgba(97,216,255,.8);
+}
+
+.money {
+  height: 88px;
+  padding: 14px 18px;
+  border-radius: 22px;
+  background: rgba(57,255,162,.08);
+}
+
+.money strong {
+  display: block;
+  margin-top: 10px;
+  color: #66ffad;
+  font-size: 34px;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: 170px 1fr 170px;
+  align-items: center;
+  gap: 18px;
+}
+
+.team {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 14px;
+}
+
+.team span {
+  font-size: 24px;
+  font-weight: 1000;
+}
+
+.team strong {
+  font-size: 58px;
+  line-height: 1;
+}
+
+.team.ct { color: #72c5ff; }
+.team.t { color: #ffe456; }
+
+.timer {
+  text-align: center;
+}
+
+.timer span {
+  display: block;
+  color: #a9b8d8;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .22em;
+}
+
+.timer strong {
+  display: block;
+  font-size: 70px;
+  line-height: .95;
+  text-shadow: 0 0 22px rgba(255,255,255,.35);
+}
+
+.bomb-chip {
+  height: 88px;
+  padding: 14px 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.045);
+}
+
+.bomb-chip strong {
+  display: block;
+  margin-top: 8px;
+  color: #ff7f9e;
+  font-size: 26px;
+}
+
+.bomb-chip em {
+  color: #fff;
+  font-style: normal;
+}
+
+.bomb-chip.is-active {
+  background: rgba(255, 41, 77, .22);
+  box-shadow: inset 0 0 35px rgba(255, 41, 77, .28);
+}
+
+.map-mini,
+.player-mini {
+  border-radius: 26px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  padding: 26px;
+}
+
+.map-mini strong,
+.player-mini strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 38px;
+}
+
+.map-mini em,
+.player-mini em {
+  display: block;
+  margin-top: 18px;
+  color: #a9b8d8;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.weapon-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at center, rgba(91,147,255,.25), transparent 52%),
+    linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+  overflow: hidden;
+}
+
+.weapon-stage::before {
+  content: "";
+  position: absolute;
+  width: 72%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  top: 50%;
+  left: 14%;
+}
+
+.weapon-stage span {
+  position: absolute;
+  top: 26px;
+}
+
+.weapon-stage strong {
+  transform: translateY(-18px);
+  font-size: 86px;
+  line-height: .9;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-shadow: 0 0 34px rgba(93, 161, 255, .65);
+}
+
+.weapon-stage em {
+  position: absolute;
+  bottom: 28px;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 1000;
+  letter-spacing: .08em;
+  color: #dbe9ff;
+}
+
+.utility,
+.stats {
+  display: flex;
+  gap: 14px;
+}
+
+.utility div,
+.stats div {
+  min-width: 112px;
+  height: 82px;
+  padding: 13px 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.05);
+}
+
+.utility strong,
+.stats strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 31px;
+}
+
+.footer-note {
+  text-align: right;
+  color: #8fa3ca;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.weapon-stage::before {
+  top: 58%;
+  opacity: .45;
+}
+
+.bomb-chip strong {
+  color: #ff9ab0;
+}
+
+.bomb-chip.is-active strong {
+  color: #fff;
+}
+
+.bomb-chip.is-active em {
+  color: #ffdce4;
+}
+
+.brand span:last-child {
+  color: #64ffc8;
+}
+
+.weapon-stage {
+  min-height: 180px;
+}
+
+.weapon-stage strong {
+  font-size: 92px;
+}
+
+.weapon-stage em {
+  bottom: 24px;
+  font-size: 46px;
+}
+
+.utility div,
+.stats div {
+  min-width: 128px;
+}
