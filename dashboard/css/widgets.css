@@ -363,3 +363,73 @@
     box-shadow: 0 0 30px rgba(255, 77, 94, 1);
   }
 }
+
+[data-ui="armor-bar"].is-low {
+  background: #9aa3b2 !important;
+  box-shadow: 0 0 18px rgba(154, 163, 178, .8) !important;
+}
+
+[data-ui="money"].is-rich {
+  color: #66ffad !important;
+  text-shadow: 0 0 18px rgba(102, 255, 173, .45);
+}
+
+[data-ui="money"].is-eco {
+  color: #ffbf4d !important;
+  text-shadow: 0 0 18px rgba(255, 191, 77, .45);
+}
+
+[data-ui="money"].is-broke {
+  color: #ff4d5e !important;
+  text-shadow: 0 0 18px rgba(255, 77, 94, .55);
+}
+
+[data-ui="ammo"].is-low {
+  color: #ffbf4d !important;
+  animation: ammoPulse .8s infinite alternate;
+}
+
+[data-ui="ammo"].is-empty {
+  color: #ff4d5e !important;
+  animation: ammoPulse .55s infinite alternate;
+}
+
+@keyframes ammoPulse {
+  from {
+    opacity: .65;
+    text-shadow: 0 0 8px rgba(255, 77, 94, .35);
+  }
+  to {
+    opacity: 1;
+    text-shadow: 0 0 24px rgba(255, 77, 94, .95);
+  }
+}
+
+body {
+  --flash-opacity: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background: white;
+  opacity: var(--flash-opacity);
+  transition: opacity .12s linear;
+}
+
+body.is-burning .hud {
+  box-shadow:
+    inset 0 0 80px rgba(255, 120, 30, .28),
+    0 0 50px rgba(255, 90, 20, .22);
+}
+
+body.is-smoked .hud {
+  filter: saturate(.65) contrast(.92) brightness(.82);
+}
+
+body.is-flashed .hud {
+  filter: brightness(1.2);
+}
