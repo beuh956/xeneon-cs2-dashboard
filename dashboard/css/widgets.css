@@ -295,3 +295,71 @@
 .stats div {
   min-width: 128px;
 }
+
+.bomb-chip.is-active,
+.bomb.is-active,
+.hud-bomb.is-active {
+  animation: bombPulse 1s infinite alternate;
+}
+
+@keyframes bombPulse {
+  from {
+    box-shadow:
+      inset 0 0 35px rgba(255, 45, 85, .35),
+      0 0 18px rgba(255, 45, 85, .25);
+  }
+
+  to {
+    box-shadow:
+      inset 0 0 55px rgba(255, 45, 85, .60),
+      0 0 38px rgba(255, 45, 85, .55);
+  }
+}
+
+.metric.health.is-low,
+.vital.health.is-low,
+.hud-vital.hp.is-low {
+  animation: hpPulse 1s infinite alternate;
+}
+
+@keyframes hpPulse {
+  from {
+    box-shadow:
+      inset 0 0 30px rgba(255, 80, 80, .25),
+      0 0 14px rgba(255, 80, 80, .20);
+  }
+
+  to {
+    box-shadow:
+      inset 0 0 55px rgba(255, 80, 80, .55),
+      0 0 32px rgba(255, 80, 80, .45);
+  }
+}
+
+.metric.health.is-low i,
+.vital.health.is-low i,
+.hud-vital.hp.is-low i {
+  background: #ff4d5e;
+  box-shadow: 0 0 22px rgba(255, 77, 94, .9);
+}
+
+[data-ui="hp-bar"].is-low {
+  background: #ff4d5e !important;
+  box-shadow: 0 0 24px rgba(255, 77, 94, .95) !important;
+}
+
+[data-ui="hp-bar"].is-low {
+  animation: hpBarPulse .75s infinite alternate;
+}
+
+@keyframes hpBarPulse {
+  from {
+    opacity: .65;
+    box-shadow: 0 0 10px rgba(255, 77, 94, .55);
+  }
+
+  to {
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(255, 77, 94, 1);
+  }
+}

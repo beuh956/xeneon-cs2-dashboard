@@ -42,6 +42,9 @@ export function render(state) {
   setText('hp', state.player.hp ?? 0);
   setWidth('hp-bar', state.player.hp ?? 0);
 
+  const hpValue = Number(state.player.hp ?? 0);
+  const hpBar = $('hp-bar');
+  if (hpBar) hpBar.classList.toggle('is-low', hpValue <= 25);
   setText('armor', state.player.armor ?? 0);
   setWidth('armor-bar', state.player.armor ?? 0);
 
