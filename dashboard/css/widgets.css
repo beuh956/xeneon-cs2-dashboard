@@ -433,3 +433,27 @@ body.is-smoked .hud {
 body.is-flashed .hud {
   filter: brightness(1.2);
 }
+
+.bomb-chip,
+.bomb,
+.hud-bomb {
+  overflow: visible;
+}
+
+.bomb-chip strong,
+.bomb strong,
+.hud-bomb strong {
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 6px;
+}
+
+.bomb-chip em,
+.bomb em,
+.hud-bomb em {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+  line-height: 1;
+  color: #fff;
+}
