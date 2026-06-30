@@ -108,7 +108,8 @@ export function render(state) {
   const burning = Number(effects.burning ?? 0);
   const smoked = Number(effects.smoked ?? 0);
 
-  document.body.style.setProperty('--flash-opacity', Math.min(0.75, flashed / 255).toString());
+  const flashOpacity = flashed > 0 ? Math.min(0.75, Math.max(0.35, flashed / 255)) : 0;
+  document.body.style.setProperty('--flash-opacity', flashOpacity.toString());
   document.body.classList.toggle('is-flashed', flashed > 5);
   document.body.classList.toggle('is-burning', burning > 0);
   document.body.classList.toggle('is-smoked', smoked > 0);
