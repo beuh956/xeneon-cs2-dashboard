@@ -75,26 +75,20 @@ function normalize(gsi) {
 }
 
 const server = http.createServer((req, res) => {
-  console.log(new Date().toLocaleTimeString(), req.method, req.url);
-  
   if (req.method === 'OPTIONS') return send(res, 204, '');
 
   if (req.url === '/gsi' && req.method === 'POST') {
-    console.log("=== GSI REQUEST ===");
-
     let body = '';
+
     req.on('data', chunk => body += chunk);
 
     req.on('end', () => {
-      console.log(body.slice(0, 500));
-
       try {
         lastGsi = JSON.parse(body || '{}');
         lastUpdate = Date.now();
-        console.log("GSI reçu OK");
         send(res, 200, 'OK');
       } catch (err) {
-        console.error("JSON invalide", err);
+        console.error('Invalid GSI JSON:', err.message);
         send(res, 400, 'Invalid JSON');
       }
     });
