@@ -17,6 +17,24 @@ function setWidth(key, value) {
   if (el) el.style.width = `${Math.max(0, Math.min(100, Number(value || 0)))}%`;
 }
 
+function setWeaponIcon(name) {
+  const el = $('weapon-icon');
+  if (!el) return;
+
+  const key = String(name || '')
+    .toLowerCase()
+    .replace('-', '')
+    .replace(' ', '_');
+
+  const map = {
+    ak47: 'ak47',
+    ak_47: 'ak47',
+    awp: 'awp'
+  };
+
+  el.src = `./assets/weapons/${map[key] || 'default'}.svg`;
+}
+
 export function render(state) {
   setText('connection', state.connection || 'DEMO MODE');
 
@@ -30,7 +48,8 @@ export function render(state) {
   setText('money', money(state.player.money));
 
   setText('weapon', state.player.weapon || 'NO WEAPON');
-
+  setWeaponIcon(state.player.weapon);
+  
   const hasAmmo = Number(state.player.ammoClip) > 0 || Number(state.player.ammoReserve) > 0;
   setText('ammo', hasAmmo ? `${state.player.ammoClip ?? 0} / ${state.player.ammoReserve ?? 0}` : '—');
 
